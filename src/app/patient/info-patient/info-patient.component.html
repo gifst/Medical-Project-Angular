@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Fiche utilisateur</h2>
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">{{getNomComplet()}}</div>
+      <div class="panel-body" *ngIf="patient">
+        <img [src]="patient.image" />
+        <table class="table">
+          <tr>
+            <td>Nom : </td>
+            <td>{{patient.nom}}</td>
+          </tr>
+          <tr>
+            <td>Prenom : </td>
+            <td>{{patient.prenom}}</td>
+          </tr>
+          <tr>
+            <td> Adresse :</td>
+            <td>{{patient.adress}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{patient.email}}</td>
+          </tr>
+          <tr>
+            <td>Telephone :</td>
+            <td>{{patient.telephone}}</td>
+          </tr>
+          <tr>
+            <td>Date Naissance ;</td>
+            <td>{{patient.dateNaiss|date:'dd-MM-yyyy'}}</td>
+          </tr>
+          <tr>
+            <td>Cin/Passport</td>
+            <td>{{patient.cin}}</td>
+          </tr>
+          <tr>
+            <td>Sexe : </td>
+            <td>{{patient.sexe}}</td>
+          </tr>
+        </table>
+
+
+      </div>
+    </div>
+
+   <div class="panel panel-info">
+      <div class="panel-heading">Visites</div>
+      <div class="panel-body" *ngIf="patient">
+        <app-list-visite [idPatient]="patient.identifiant"></app-list-visite>
+      </div>
+    </div>
+
+
+</div>
+
+
+

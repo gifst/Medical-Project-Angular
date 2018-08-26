@@ -1,0 +1,40 @@
+
+<button  class="btn btn-success" (click)="addPatient()">Ajouter Patient</button>
+<app-edit-patient *ngIf="showFormPatient" [patient]="editedpatient" [(showForm)]="showFormPatient"></app-edit-patient>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Nom</td>
+      <td>Prenom</td>
+      <td>Date Nissance</td>
+      <td>Sexe</td>
+      <td>Adresse</td>
+      <td>Telephone</td>
+      <td>Mutuelle</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of listPatients">
+      <td>{{patient.nom}}</td>
+      <td>{{patient.prenom}}</td>
+      <td>{{patient.dateNaiss| date :'dd-MM-yyyy'}}</td>
+      <td>{{patient.sexe}}</td>
+      <td>{{patient.adress}}</td>
+      <td>{{patient.telephone}}</td>
+      <td>{{patient.mutuelle}}</td>
+      <td>
+        <a class="btn btn-info" routerLink="/patient/{{patient.identifiant}}">Détails</a>
+        <button class="btn btn-danger" (click)="deletePatient(patient.identifiant)">Supprimer</button>
+        <button class="btn btn-success" (click)="editPatient(patient.identifiant)">Edite</button>
+      </td>
+
+    </tr>
+  </tbody>
+
+
+</table>
+<br/>
+
+

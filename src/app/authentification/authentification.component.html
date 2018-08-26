@@ -1,0 +1,28 @@
+
+<h1>Authentification</h1>
+<span *ngIf="!isAuth">
+  <table class="table">
+    <tr>
+      <td><label for="userName">Login : </label></td>
+      <td><input type="text" [(ngModel)]="userName" id="userName"></td>
+    </tr>
+    <tr>
+      <td><label for="password">Password : </label></td>
+      <td><input type="text" [(ngModel)]="password" id="password"></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>
+      <button class="btn btn-success" (click)="logIn()">
+        Se Connecter
+      </button>
+    </td>
+    </tr>
+  </table>
+  <span class="text-danger">{{message}}</span>
+</span>
+
+
+<button *ngIf="isAuth" class="btn btn-danger" (click)="logOut()">Se Déconnecter</button>
+
+
